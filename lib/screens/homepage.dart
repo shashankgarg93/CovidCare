@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
+
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -49,14 +50,19 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 20,),
             ElevatedButton(onPressed: (){},
-            style: ButtonStyle(backgroundColor: ),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.teal,
+                onPrimary: Colors.white,
+                onSurface: Colors.grey,
+              ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text('Recieve',
               style: TextStyle(
                 color: Color(0xFFA6A57A),
                 fontSize: 39,
-              ),),
+              ),
+              ),
             ),
             ),
           ],
