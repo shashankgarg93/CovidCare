@@ -3,10 +3,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(90, 53, 42, 1),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(39,33,60,1),
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(''),
+        title: Text('Covid-Care',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Color.fromRGBO(166, 165, 122, 1),
+        ),),
+        centerTitle: true,
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -28,21 +35,38 @@ class HomePage extends StatelessWidget {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            ElevatedButton(onPressed: (){},
+            style: ElevatedButton.styleFrom(
+      primary: Color(0xFFA33B20)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Donate',
+              style: TextStyle(
+                color: Color(0xFFA6A57A),
+                fontSize: 40,
+              ),),
             ),
-            Text(
-              'counter',
-              style: Theme.of(context).textTheme.headline4,
+            ),
+            SizedBox(height: 20,),
+            ElevatedButton(onPressed: (){},
+            style: ButtonStyle(backgroundColor: ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Recieve',
+              style: TextStyle(
+                color: Color(0xFFA6A57A),
+                fontSize: 39,
+              ),),
+            ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      //floatingActionButton: FloatingActionButton(
+      //  onPressed: (){},
+      //  tooltip: 'Increment',
+     //   child: Icon(Icons.add),
+      //), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
