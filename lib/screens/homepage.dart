@@ -3,16 +3,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(90, 53, 42, 1),
+
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(39,33,60,1),
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text('Covid-Care',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Color.fromRGBO(166, 165, 122, 1),
-        ),),
+        ),
         centerTitle: true,
       ),
       body: Center(
@@ -39,9 +33,18 @@ class HomePage extends StatelessWidget {
             ElevatedButton(onPressed: (){
               Navigator.pushNamed(context, '/donate_screen');
             },
-            style: ElevatedButton.styleFrom(
-      primary: Color(0xFFA33B20)),
-            child: Padding(
+              style: ButtonStyle(
+                 backgroundColor: MaterialStateProperty.all<Color>(Color(0XFFA33B20)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+
+                        borderRadius: BorderRadius.circular(18.0),
+                        side: BorderSide(color: Colors.red)
+                    )
+                ),
+              ),
+
+              child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text('Donate',
               style: TextStyle(
@@ -54,16 +57,21 @@ class HomePage extends StatelessWidget {
             ElevatedButton(onPressed: (){
               Navigator.pushNamed(context, '/recieve_screen');
             },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.teal,
-                onPrimary: Colors.white,
-                onSurface: Colors.grey,
-              ),
+                style: ButtonStyle(
+                 backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFA6A57A)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.red)
+                        )
+                    ),
+                ),
+
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text('Recieve',
               style: TextStyle(
-                color: Color(0xFFA6A57A),
+                color: Color(0XFFA33B20),
                 fontSize: 39,
               ),
               ),

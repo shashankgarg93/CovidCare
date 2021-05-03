@@ -12,7 +12,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor:Color.fromRGBO(90, 53, 42, 1),
+        appBarTheme: AppBarTheme(
+            backgroundColor: Color.fromRGBO(39,33,60,1),
+            // Here we take the value from the MyHomePage object that was created by
+            // the App.build method, and use it to set our appbar title.
+
+              titleTextStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Color.fromRGBO(166, 165, 122, 1),
+     ),
+        ),
+
+      ),
       routes: {
         '/' : (context) =>HomePage() ,
         '/donate_screen' : (context) => DonateScreen(),
