@@ -36,7 +36,9 @@ class HomePage extends StatelessWidget {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(onPressed: (){},
+            ElevatedButton(onPressed: (){
+              Navigator.pushNamed(context, '/donate_screen');
+            },
             style: ElevatedButton.styleFrom(
       primary: Color(0xFFA33B20)),
             child: Padding(
@@ -49,7 +51,9 @@ class HomePage extends StatelessWidget {
             ),
             ),
             SizedBox(height: 20,),
-            ElevatedButton(onPressed: (){},
+            ElevatedButton(onPressed: (){
+              Navigator.pushNamed(context, '/recieve_screen');
+            },
               style: ElevatedButton.styleFrom(
                 primary: Colors.teal,
                 onPrimary: Colors.white,
