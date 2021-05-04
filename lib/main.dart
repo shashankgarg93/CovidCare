@@ -34,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/donate_screen' : (context) => DonateScreen(),
         '/donate_screen2' : (context) => DonateScreen2(),
         '/recieve_screen' : (context) => RecieveScreen(),
+
+       // '/dsz':(context)=>
       }
       ,
     );

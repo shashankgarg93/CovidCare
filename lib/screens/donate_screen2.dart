@@ -164,7 +164,7 @@ class _DonateScreen2State extends State<DonateScreen2> {
       ),
       fillColor: Color(0xFF4C4F5E),
       shape: CircleBorder(),
-                                child: Icon(FontAwesomeIcons.minus),
+                                child: Icon(FontAwesomeIcons.plus),
                                 onPressed: () {
                                   setState(() {
                                     r_count++;

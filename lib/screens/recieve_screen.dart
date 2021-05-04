@@ -7,8 +7,18 @@ class RecieveScreen extends StatefulWidget {
 class _RecieveScreenState extends State<RecieveScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
+    return Container(
+          decoration: BoxDecoration(image:DecorationImage(
+              image: NetworkImage('https://source.unsplash.com/1600x900/?medical'),
+              fit: BoxFit.cover),),
+
+child: Scaffold(
+  appBar: AppBar(
+  ),
+),
+
     );
+
+
   }
 }
