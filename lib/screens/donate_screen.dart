@@ -18,106 +18,109 @@ class _DonateScreenState extends State<DonateScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-   body: SafeArea(
-     child: Container(
+   body: SingleChildScrollView(
+     child: SafeArea(
+       child: Container(
 
-       padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-       child: Column(
-         children: <Widget>[
-           TextFormField(
+         padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+         child: Column(
+           children: <Widget>[
+             TextFormField(
 autofocus: true,
-             decoration: InputDecoration(
-               hintText: 'NAME',
+               decoration: InputDecoration(
+                 hintText: 'NAME',
 
 enabledBorder: OutlineInputBorder(
   borderSide: BorderSide(
-      color: Color.fromRGBO(39,33,60,1),
-      width:1.0,
+        color: Color.fromRGBO(39,33,60,1),
+        width:1.0,
   ),
 ),
+               ),
+
+               onChanged: (val){
+                 setState(() {
+                   name=val;
+
+                 }
+
+                 );
+
+                 },
+
              ),
+             SizedBox(height:15),
+             TextFormField(
+               autofocus: true,
+               decoration: InputDecoration(
+                 hintText: 'Email',
+enabledBorder: OutlineInputBorder(
+ borderSide: BorderSide(
+     color: Color.fromRGBO(39,33,60,1),
+width: 0.5
+ )
+)
+               ),
 
-             onChanged: (val){
-               setState(() {
-                 name=val;
-               }
+               onChanged: (val){
+                 setState(() {
+                   email=val;
+                 }
 
-               );
+                 );
+
+               },
+
+
+             ),
+SizedBox(height: 15,),
+             TextFormField(
+               autofocus: true,
+               decoration: InputDecoration(
+                 hintText: 'Phone Number',
+enabledBorder: OutlineInputBorder(
+  borderSide: BorderSide(
+      color: Color.fromRGBO(39,33,60,1),
+width: 0.5
+  )
+)
+               ),
+
+               onChanged: (val){
+                 setState(() {
+                   number=val;
+                 }
+
+                 );
 
                },
 
            ),
-           SizedBox(height:15),
-           TextFormField(
-             autofocus: true,
-             decoration: InputDecoration(
-               hintText: 'Email',
-enabledBorder: OutlineInputBorder(
- borderSide: BorderSide(
-   color: Color.fromRGBO(39,33,60,1),
-width: 0.5
- )
-)
-             ),
-
-             onChanged: (val){
-               setState(() {
-                 email=val;
-               }
-
-               );
-
-             },
-
-
-           ),
-SizedBox(height: 15,),
-           TextFormField(
-             autofocus: true,
-             decoration: InputDecoration(
-               hintText: 'Phone Number',
-enabledBorder: OutlineInputBorder(
-  borderSide: BorderSide(
-    color: Color.fromRGBO(39,33,60,1),
-width: 0.5
-  )
-)
-             ),
-
-             onChanged: (val){
-               setState(() {
-                 number=val;
-               }
-
-               );
-
-             },
-
-         ),
-         SelectState(
-              onCountryChanged: (value) {
-              setState(() {
-                countryValue = value;
-              });
-            },
-            onStateChanged:(value) {
-              setState(() {
-                stateValue = value;
-              });
-            },
-             onCityChanged:(value) {
-              setState(() {
-                cityValue = value;
-              });
-            },
-            
-            ),
-         SizedBox(height:10),
-         Center(child: RaisedButton.icon(onPressed: (){}, icon: Icon(Icons.add), label:Text('Submit')))
-       ],
+           SelectState(
+                onCountryChanged: (value) {
+                setState(() {
+                  countryValue = value;
+                });
+              },
+              onStateChanged:(value) {
+                setState(() {
+                  stateValue = value;
+                });
+              },
+               onCityChanged:(value) {
+                setState(() {
+                  cityValue = value;
+                });
+              },
+              
+              ),
+           SizedBox(height:10),
+           Center(child: RaisedButton.icon(onPressed: (){}, icon: Icon(Icons.add), label:Text('Submit')))
+         ],
+       ),
      ),
-   ),
-    ),);
+      ),
+   ),);
 
   }
 }
