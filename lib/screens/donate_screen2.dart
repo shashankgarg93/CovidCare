@@ -117,7 +117,141 @@ class _DonateScreen2State extends State<DonateScreen2> {
               //         value: 'Tozi Injection', child: Text('Tozi Injection')),
               //   ],
               // ),
+
+
+              Row(
+mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children:<Widget>[
+
+              Container(
+
+                child: Card(
+                      color: Color(0xFF1D1E33),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Remdisivir',
+                            style: TextStyle(
+  fontSize: 18.0,
+  color: Color(0xFF8D8E98),
+),
+                          ),
+                          Text(
+                            '$r_count',
+                            style: TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.w900,
+),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                          //  crossAxisAlignment: Cross,
+                            children: <Widget>[
+                              RawMaterialButton(
+                                elevation: 0.0,
+                                constraints: BoxConstraints.tightFor(
+        width: 100.0,
+        height: 56.0,
+      ),
+      fillColor: Color(0xFF4C4F5E),
+      shape: CircleBorder(),
+                                  child: Icon(FontAwesomeIcons.minus),
+                                  onPressed: () {
+                                    setState(() {
+                                      r_count--;
+                                    });
+                                  }),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              RawMaterialButton(
+                                elevation: 0.0,
+                                constraints: BoxConstraints.tightFor(
+        width: 60.0,
+        height: 56.0,
+      ),
+      fillColor: Color(0xFF4C4F5E),
+      shape: CircleBorder(),
+                                  child: Icon(FontAwesomeIcons.plus),
+                                  onPressed: () {
+                                    setState(() {
+                                      r_count++;
+                                    });
+                                  }),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+              ),
+
               Card(
+                color: Color(0xFF1D1E33),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Remdisivir',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: Color(0xFF8D8E98),
+                      ),
+                    ),
+                    Text(
+                      '$r_count',
+                      style: TextStyle(
+                        fontSize: 50.0,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RawMaterialButton(
+                            elevation: 0.0,
+                            constraints: BoxConstraints.tightFor(
+                              width: 100.0,
+                              height: 56.0,
+                            ),
+                            fillColor: Color(0xFF4C4F5E),
+                            shape: CircleBorder(),
+                            child: Icon(FontAwesomeIcons.minus),
+                            onPressed: () {
+                              setState(() {
+                                r_count--;
+                              });
+                            }),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        RawMaterialButton(
+                            elevation: 0.0,
+                            constraints: BoxConstraints.tightFor(
+                              width: 60.0,
+                              height: 56.0,
+                            ),
+                            fillColor: Color(0xFF4C4F5E),
+                            shape: CircleBorder(),
+                            child: Icon(FontAwesomeIcons.plus),
+                            onPressed: () {
+                              setState(() {
+                                r_count++;
+                              });
+                            }),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+                          ],
+              )        ,
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children:<Widget>[
+
+                  Card(
                     color: Color(0xFF1D1E33),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -125,28 +259,29 @@ class _DonateScreen2State extends State<DonateScreen2> {
                         Text(
                           'Remdisivir',
                           style: TextStyle(
-  fontSize: 18.0,
-  color: Color(0xFF8D8E98),
-),
+                            fontSize: 18.0,
+                            color: Color(0xFF8D8E98),
+                          ),
                         ),
                         Text(
                           '$r_count',
                           style: TextStyle(
-  fontSize: 50.0,
-  fontWeight: FontWeight.w900,
-),
+                            fontSize: 50.0,
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          //  crossAxisAlignment: Cross,
                           children: <Widget>[
                             RawMaterialButton(
-                              elevation: 0.0,
-                              constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      fillColor: Color(0xFF4C4F5E),
-      shape: CircleBorder(),
+                                elevation: 0.0,
+                                constraints: BoxConstraints.tightFor(
+                                  width: 100.0,
+                                  height: 56.0,
+                                ),
+                                fillColor: Color(0xFF4C4F5E),
+                                shape: CircleBorder(),
                                 child: Icon(FontAwesomeIcons.minus),
                                 onPressed: () {
                                   setState(() {
@@ -157,13 +292,13 @@ class _DonateScreen2State extends State<DonateScreen2> {
                               width: 10.0,
                             ),
                             RawMaterialButton(
-                              elevation: 0.0,
-                              constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      fillColor: Color(0xFF4C4F5E),
-      shape: CircleBorder(),
+                                elevation: 0.0,
+                                constraints: BoxConstraints.tightFor(
+                                  width: 60.0,
+                                  height: 56.0,
+                                ),
+                                fillColor: Color(0xFF4C4F5E),
+                                shape: CircleBorder(),
                                 child: Icon(FontAwesomeIcons.plus),
                                 onPressed: () {
                                   setState(() {
@@ -175,7 +310,75 @@ class _DonateScreen2State extends State<DonateScreen2> {
                       ],
                     ),
                   ),
-                          SizedBox(height: 20),
+
+                  Card(
+                    color: Color(0xFF1D1E33),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Remdisivir',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            color: Color(0xFF8D8E98),
+                          ),
+                        ),
+                        Text(
+                          '$r_count',
+                          style: TextStyle(
+                            fontSize: 50.0,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RawMaterialButton(
+                                elevation: 0.0,
+                                constraints: BoxConstraints.tightFor(
+                                  width: 100.0,
+                                  height: 56.0,
+                                ),
+                                fillColor: Color(0xFF4C4F5E),
+                                shape: CircleBorder(),
+                                child: Icon(FontAwesomeIcons.minus),
+                                onPressed: () {
+                                  setState(() {
+                                    r_count--;
+                                  });
+                                }),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RawMaterialButton(
+                                elevation: 0.0,
+                                constraints: BoxConstraints.tightFor(
+                                  width: 60.0,
+                                  height: 56.0,
+                                ),
+                                fillColor: Color(0xFF4C4F5E),
+                                shape: CircleBorder(),
+                                child: Icon(FontAwesomeIcons.plus),
+                                onPressed: () {
+                                  setState(() {
+                                    r_count++;
+                                  });
+                                }),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+
+
+
+
+
+
+
+              SizedBox(height: 20),
 
             
               
