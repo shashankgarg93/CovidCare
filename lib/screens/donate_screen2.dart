@@ -12,7 +12,13 @@ class _DonateScreen2State extends State<DonateScreen2> {
   final _formKey = GlobalKey<FormBuilderState>();
   String name = '';
   String city = '';
+  // ignore: non_constant_identifier_names
   int r_count = 0;
+  // ignore: non_constant_identifier_names
+  int t_count = 0;
+  int money = 0;
+  // ignore: non_constant_identifier_names
+  int o_count = 0;
   String contactnumber = '';
   Iterable<String> items =[];
   @override
@@ -159,6 +165,7 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   child: Icon(FontAwesomeIcons.minus),
                                   onPressed: () {
                                     setState(() {
+                                      if(r_count>0)
                                       r_count--;
                                     });
                                   }),
@@ -192,14 +199,14 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'Remdisivir',
+                      'Tozila Injection',
                       style: TextStyle(
                         fontSize: 18.0,
                         color: Color(0xFF8D8E98),
                       ),
                     ),
                     Text(
-                      '$r_count',
+                      '$t_count',
                       style: TextStyle(
                         fontSize: 50.0,
                         fontWeight: FontWeight.w900,
@@ -219,7 +226,8 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             child: Icon(FontAwesomeIcons.minus),
                             onPressed: () {
                               setState(() {
-                                r_count--;
+                                if(t_count>0)
+                                t_count--;
                               });
                             }),
                         SizedBox(
@@ -236,7 +244,7 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             child: Icon(FontAwesomeIcons.plus),
                             onPressed: () {
                               setState(() {
-                                r_count++;
+                                t_count++;
                               });
                             }),
                       ],
@@ -257,14 +265,14 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'Remdisivir',
+                          'Oxygen Cylinder (kg)',
                           style: TextStyle(
                             fontSize: 18.0,
                             color: Color(0xFF8D8E98),
                           ),
                         ),
                         Text(
-                          '$r_count',
+                          '$o_count',
                           style: TextStyle(
                             fontSize: 50.0,
                             fontWeight: FontWeight.w900,
@@ -285,7 +293,8 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 child: Icon(FontAwesomeIcons.minus),
                                 onPressed: () {
                                   setState(() {
-                                    r_count--;
+                                    if(o_count>0)
+                                    o_count--;
                                   });
                                 }),
                             SizedBox(
@@ -302,7 +311,7 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 child: Icon(FontAwesomeIcons.plus),
                                 onPressed: () {
                                   setState(() {
-                                    r_count++;
+                                    o_count++;
                                   });
                                 }),
                           ],
@@ -317,19 +326,38 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'Remdisivir',
+                          'Money(in Rs)',
                           style: TextStyle(
                             fontSize: 18.0,
                             color: Color(0xFF8D8E98),
                           ),
                         ),
                         Text(
-                          '$r_count',
+                          '$money',
                           style: TextStyle(
                             fontSize: 50.0,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
+                        new TextFormField(
+                          onChanged: (val){
+                            money = int.parse(val);
+                          },
+                      decoration: new InputDecoration(
+                        labelText: money.toString(),
+                        fillColor: Colors.white,
+                        border: new OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(25.0),
+                          borderSide: new BorderSide(
+                          ),
+                        ),
+                        //fillColor: Colors.green
+                      ),
+                      keyboardType: TextInputType.number,
+                      style: new TextStyle(
+                        fontFamily: "Poppins",
+                      ),
+                    ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -344,7 +372,8 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 child: Icon(FontAwesomeIcons.minus),
                                 onPressed: () {
                                   setState(() {
-                                    r_count--;
+                                    if(money>0)
+                                    money=money-500;
                                   });
                                 }),
                             SizedBox(
@@ -361,7 +390,7 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 child: Icon(FontAwesomeIcons.plus),
                                 onPressed: () {
                                   setState(() {
-                                    r_count++;
+                                    money+=500;
                                   });
                                 }),
                           ],
