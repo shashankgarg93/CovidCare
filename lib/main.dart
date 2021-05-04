@@ -1,4 +1,5 @@
 import 'package:covid_care/screens/donate_screen.dart';
+import 'package:covid_care/screens/donate_screen2.dart';
 import 'package:flutter/material.dart';
 import 'screens/homepage.dart';
 import 'screens/recieve_screen.dart';
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor:Color.fromRGBO(90, 53, 42, 1),
+        //scaffoldBackgroundColor:Color.fromRGBO(90, 53, 42, 1),
+        scaffoldBackgroundColor: Colors.transparent,
         appBarTheme: AppBarTheme(
             backgroundColor: Color.fromRGBO(39,33,60,1),
             // Here we take the value from the MyHomePage object that was created by
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/' : (context) =>HomePage() ,
         '/donate_screen' : (context) => DonateScreen(),
+        '/donate_screen2' : (context) => DonateScreen2(),
         '/recieve_screen' : (context) => RecieveScreen(),
       }
       ,
