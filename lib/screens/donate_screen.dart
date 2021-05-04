@@ -93,7 +93,6 @@ width: 0.5
 
              },
 
-<<<<<<< HEAD
          ),
          SelectState(
               onCountryChanged: (value) {
@@ -116,21 +115,9 @@ width: 0.5
          SizedBox(height:10),
          Center(child: RaisedButton.icon(onPressed: (){}, icon: Icon(Icons.add), label:Text('Submit')))
        ],
-=======
-           ),
-           SizedBox(height:30),
-           Center(child: RaisedButton.icon(
-               color: Color.fromRGBO(39,33,60,1),
-               onPressed: (){}, icon: Icon(Icons.add,color: Colors.white,), label:Text('Submit',style: TextStyle(
-             color: Colors.white,
-           ),)))
-         
-         ],
-       ),
->>>>>>> 4f29fcb06d0dc62e90a6d15c360bc7fc3bd5ee65
      ),
    ),
-    );
+    ),);
 
   }
 }
