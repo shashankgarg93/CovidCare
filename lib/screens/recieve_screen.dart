@@ -7,7 +7,7 @@ class RecieveScreen extends StatefulWidget {
 class _RecieveScreenState extends State<RecieveScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
       
     );
   }
