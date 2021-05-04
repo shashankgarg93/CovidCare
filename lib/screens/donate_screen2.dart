@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 class DonateScreen2 extends StatefulWidget {
   @override
@@ -9,6 +12,7 @@ class _DonateScreen2State extends State<DonateScreen2> {
   final _formKey = GlobalKey<FormBuilderState>();
   String name = '';
   String city = '';
+  int r_count = 0;
   String contactnumber = '';
   Iterable<String> items =[];
   @override
@@ -95,24 +99,82 @@ class _DonateScreen2State extends State<DonateScreen2> {
               ),
                           SizedBox(height: 20),
 
-              FormBuilderFilterChip(
-                onChanged: (val)
-                {
-                  items = val.map((e) => e.toString());
-                },
-                name: 'filter_chip',
-                decoration: InputDecoration(
-                  labelText: 'Select items you want to donate',
-                ),
-                options: [
-                  FormBuilderFieldOption(
-                      value: 'Remdisivr', child: Text('Remdisivr')),
-                  FormBuilderFieldOption(
-                      value: 'Oxygen Cylinder', child: Text('Oxygen Cylinder')),
-                  FormBuilderFieldOption(
-                      value: 'Tozi Injection', child: Text('Tozi Injection')),
-                ],
-              ),
+              // FormBuilderFilterChip(
+              //   onChanged: (val)
+              //   {
+              //     items = val.map((e) => e.toString());
+              //   },
+              //   name: 'filter_chip',
+              //   decoration: InputDecoration(
+              //     labelText: 'Select items you want to donate',
+              //   ),
+              //   options: [
+              //     FormBuilderFieldOption(
+              //         value: 'Remdisivr', child: Text('Remdisivr')),
+              //     FormBuilderFieldOption(
+              //         value: 'Oxygen Cylinder', child: Text('Oxygen Cylinder')),
+              //     FormBuilderFieldOption(
+              //         value: 'Tozi Injection', child: Text('Tozi Injection')),
+              //   ],
+              // ),
+              Card(
+                    color: Color(0xFF1D1E33),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Remdisivir',
+                          style: TextStyle(
+  fontSize: 18.0,
+  color: Color(0xFF8D8E98),
+),
+                        ),
+                        Text(
+                          '$r_count',
+                          style: TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.w900,
+),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RawMaterialButton(
+                              elevation: 0.0,
+                              constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      fillColor: Color(0xFF4C4F5E),
+      shape: CircleBorder(),
+                                child: Icon(FontAwesomeIcons.minus),
+                                onPressed: () {
+                                  setState(() {
+                                    r_count--;
+                                  });
+                                }),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RawMaterialButton(
+                              elevation: 0.0,
+                              constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      fillColor: Color(0xFF4C4F5E),
+      shape: CircleBorder(),
+                                child: Icon(FontAwesomeIcons.minus),
+                                onPressed: () {
+                                  setState(() {
+                                    r_count++;
+                                  });
+                                }),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                           SizedBox(height: 20),
 
             
