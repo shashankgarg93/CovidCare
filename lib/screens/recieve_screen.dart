@@ -21,31 +21,20 @@ class _RecieveScreenState extends State<RecieveScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(),
-        body: SingleChildScrollView(
-          child: StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance.collection('root').snapshots(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                var doc = snapshot.data!.docs;
-                return ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: doc.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Card(
-                          child: Text(
-                            doc[index].id,
-                            style: TextStyle(fontSize: 30),
-                          ),
-                        ),
-                      );
-                    });
-              } else {
-                return LinearProgressIndicator();
-              }
-            },
-          ),
+        body: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance.collection('root').snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              var doc = snapshot.data!.docs;
+              return Text(
+                doc[2].id,
+                style: TextStyle(fontSize: 30),
+              );
+            } else {
+              return LinearProgressIndicator();
+            }
+          },
+
           // EnhancedDropDown.withData(
           //           dropdownLabelTitle: "Please select your city if *Available",
           //           dataSource: AddUser().getcity(x),
