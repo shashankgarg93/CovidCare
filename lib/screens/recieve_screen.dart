@@ -21,33 +21,35 @@ child: Scaffold(
   ),
   body: SingleChildScrollView
   (child: Container(
-  child: SafeArea(
-      child: Expanded(
-              child: Column(children: [
+  child: SizedBox(
+    height: 200,
+      child: Column(children: [
         StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance.collection('root').snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              var doc = snapshot.data!.docs;
-              return new ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                  itemCount: doc.length,
-                  itemBuilder: (context, index) {
+      var doc = snapshot.data!.docs;
+      return Expanded(
+              child: new ListView.builder(
+          scrollDirection: Axis.vertical,
+            itemCount: doc.length,
+            itemBuilder: (context, index) {
 
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Card(
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
 
-                            child: 
-                              Text(doc[index].id),
-                              
+                      child: 
+                        Text(doc[index].id,
+                        style: TextStyle(fontSize: 30),),
+                        
 
-                        ),
-                      );
-                  });
+                  ),
+                );
+            }),
+      );
             } else {
-              return LinearProgressIndicator();
+      return LinearProgressIndicator();
             }
           },
         ),
@@ -59,7 +61,6 @@ child: Scaffold(
         //              print(chosen);
         //          })
     ],),
-      ),
   ),
     ),
   ),
