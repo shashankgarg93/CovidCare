@@ -9,6 +9,7 @@ class RecieveScreen extends StatefulWidget {
 }
 
 class _RecieveScreenState extends State<RecieveScreen> {
+  String city = '';
   var db = FirebaseFirestore.instance.collection('root');
   @override
   Widget build(BuildContext context) {
@@ -21,27 +22,55 @@ class _RecieveScreenState extends State<RecieveScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(),
-        body: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('root').snapshots(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              var doc = snapshot.data!.docs;
-              return Text(
-                doc[2].id,
-                style: TextStyle(fontSize: 30),
-              );
-            } else {
-              return LinearProgressIndicator();
-            }
-          },
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance.collection('root').snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    var doc = snapshot.data!.docs;
+                    return EnhancedDropDown.withData(
+                          dropdownLabelTitle: "Please select your city if *Available",
+                          dataSource: doc.map((e) => e.id).toList(),
+                          defaultOptionText: "City",
+                          valueReturned: (chosen) {
+                             city=chosen;
+                         });
+                  } else {
+                    return LinearProgressIndicator();
+                  }
+                },
 
-          // EnhancedDropDown.withData(
-          //           dropdownLabelTitle: "Please select your city if *Available",
-          //           dataSource: AddUser().getcity(x),
-          //           defaultOptionText: "City",
-          //           valueReturned: (chosen) {
-          //              print(chosen);
-          //          })
+                
+              ),
+              ElevatedButton(onPressed: (){
+                if(city!='')
+                Navigator.pushNamed(context, '/itemreq_screen');
+              },
+                style: ButtonStyle(
+                   backgroundColor: MaterialStateProperty.all<Color>(Color(0XFFA33B20)),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.red)
+                      )
+                  ),
+                ),
+
+                child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Submit',
+                style: TextStyle(
+                  color: Color(0xFFA6A57A),
+                  fontSize: 40,
+                ),),
+              ),
+              ),
+            ],
+          ),
         ),
       ),
     );
