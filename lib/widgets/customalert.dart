@@ -11,3 +11,12 @@ class AlertButton{
    text: "Thankyou for Donating!",
 );}
 }
+
+class AlertButton2{
+  Future display_alert(context){
+  return CoolAlert.show(
+   context: context,
+   type: CoolAlertType.info,
+   text: "Sorry no donaters currently available, Keep checking :(",
+);}
+}

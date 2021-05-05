@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covid_care/Services/database.dart';
+import 'package:covid_care/screens/itemreq.dart';
 import 'package:flutter/material.dart';
 import 'package:enhanced_drop_down/enhanced_drop_down.dart';
 
@@ -47,7 +48,7 @@ class _RecieveScreenState extends State<RecieveScreen> {
               ),
               ElevatedButton(onPressed: (){
                 if(city!='')
-                Navigator.pushNamed(context, '/itemreq_screen');
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemReq(city: city)));
               },
                 style: ButtonStyle(
                    backgroundColor: MaterialStateProperty.all<Color>(Color(0XFFA33B20)),

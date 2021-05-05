@@ -9,6 +9,7 @@ class AddUser {
   Future updateUser(Map details, int money, int r, int t, int o) async {
     //CollectionReference users = rootdoc.collection(details['city'].toUpperCase());
     DocumentReference doc = rootdoc.doc(details['city']);
+    await doc.set({'field' : ''});
     CollectionReference R = doc.collection('Rem');
     if(r!=0){
      await R.doc(details['name']).set({

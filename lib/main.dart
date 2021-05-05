@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:covid_care/screens/Donors.dart';
 import 'package:covid_care/screens/donate_screen.dart';
 import 'package:covid_care/screens/donate_screen2.dart';
 import 'package:covid_care/screens/itemreq.dart';
@@ -42,7 +43,8 @@ class MyApp extends StatelessWidget {
     '/donate_screen' : (context) => DonateScreen(),
     '/donate_screen2' : (context) => DonateScreen2(),
     '/recieve_screen' : (context) => RecieveScreen(),
-    '/itemreq_screen' : (context) => ItemReq(),
+    '/donor_screen' : (context) => Donor(city: '', req: ''),
+    '/itemreq_screen' : (context) => ItemReq(city: ''),
          // '/dsz':(context)=>
         }
         ,

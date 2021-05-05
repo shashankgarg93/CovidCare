@@ -1,6 +1,9 @@
+import 'package:covid_care/screens/Donors.dart';
 import 'package:flutter/material.dart';
 
 class ItemReq extends StatefulWidget {
+  String city = '';
+  ItemReq({required this.city});
   @override
   _ItemReqState createState() => _ItemReqState();
 }
@@ -21,7 +24,9 @@ class _ItemReqState extends State<ItemReq> {
                                 height: 80,
                                 width: 300,
                                       child: FlatButton(
-                                        onPressed: (){},
+                                        onPressed: (){
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Donor(city: widget.city, req: 'Rem')));
+                                        },
                                   color: Colors.amber[600],
                                   child: Text('Remdisivir'),
                                 ),
@@ -34,7 +39,7 @@ class _ItemReqState extends State<ItemReq> {
                                 width: 300,
                                       child: FlatButton(
                                         onPressed: (){
-                                          
+
                                         },
                                   color: Colors.amber[600],
                                   child: Text('Oxygen'),
