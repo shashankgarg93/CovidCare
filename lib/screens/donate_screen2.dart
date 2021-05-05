@@ -1,7 +1,10 @@
+import 'package:covid_care/Services/database.dart';
+import 'package:covid_care/widgets/customalert.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 class DonateScreen2 extends StatefulWidget {
   @override
@@ -9,6 +12,7 @@ class DonateScreen2 extends StatefulWidget {
 }
 
 class _DonateScreen2State extends State<DonateScreen2> {
+  
   final _formKey = GlobalKey<FormBuilderState>();
   String name = '';
   String city = '';
@@ -20,7 +24,6 @@ class _DonateScreen2State extends State<DonateScreen2> {
   // ignore: non_constant_identifier_names
   int o_count = 0;
   String contactnumber = '';
-  Iterable<String> items =[];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,31 +58,30 @@ class _DonateScreen2State extends State<DonateScreen2> {
                 // valueTransformer: (text) => num.tryParse(text),
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(context),
-                  FormBuilderValidators.numeric(context),
+                  
                   FormBuilderValidators.max(context, 70),
                 ]),
-                keyboardType: TextInputType.number,
+                
               ),
               SizedBox(height: 20),
               FormBuilderTextField(
-                name: 'phone',
+                name: 'contact',
                 decoration: InputDecoration(
                   labelText:
                       'Please enter your Contact number',
                 ),
                 onChanged: (val){
                   setState(() {
-                    contactnumber=val;
+                    contactnumber=val.toString();
                   });
                 },
-                
+                keyboardType: TextInputType.number,
                 // valueTransformer: (text) => num.tryParse(text),
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(context),
-                  FormBuilderValidators.numeric(context),
-                  FormBuilderValidators.max(context, 70),
+                  
                 ]),
-                keyboardType: TextInputType.number,
+                
               ),
                           SizedBox(height: 20),
 
@@ -91,17 +93,18 @@ class _DonateScreen2State extends State<DonateScreen2> {
                 ),
                 onChanged: (val){
                   setState(() {
-                    city=val.toUpperCase();
+                    city=val;
                   });
+                  
                 },
                 
                 // valueTransformer: (text) => num.tryParse(text),
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(context),
-                  FormBuilderValidators.numeric(context),
+                  
                   FormBuilderValidators.max(context, 70),
                 ]),
-                keyboardType: TextInputType.number,
+                
               ),
                           SizedBox(height: 20),
 
@@ -339,25 +342,32 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
-                        new TextFormField(
-                          onChanged: (val){
-                            money = int.parse(val);
-                          },
+                        Container(
+                          height: 20,
+                          width: 20,
+                                                  child: new TextFormField(
+                            onChanged: (val){
+                              setState(() {
+                                                              money = int.parse(val);
+
+                              });
+                            },
                       decoration: new InputDecoration(
-                        labelText: money.toString(),
-                        fillColor: Colors.white,
-                        border: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                          borderSide: new BorderSide(
+                          labelText: money.toString(),
+                          fillColor: Colors.white,
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(25.0),
+                            borderSide: new BorderSide(
+                            ),
                           ),
-                        ),
-                        //fillColor: Colors.green
+                          //fillColor: Colors.green
                       ),
                       keyboardType: TextInputType.number,
                       style: new TextStyle(
-                        fontFamily: "Poppins",
+                          fontFamily: "Poppins",
                       ),
                     ),
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -429,10 +439,26 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 onPressed: () {
                   _formKey.currentState!.save();
                   if (_formKey.currentState!.validate()) {
-                    print(_formKey.currentState!.value);
+                    if(o_count==0 && r_count==0 && money==0 && t_count==0)
+                    {
+
+                    }
+                    else{
+                      AddUser().updateUser(_formKey.currentState!.value, money, r_count, t_count, o_count);
+                      _formKey.currentState!.reset();
+                      setState(() {
+                        money=0;
+                        r_count=0;
+                        t_count=0;
+                        o_count=0;
+                      });
+                      AlertButton().display_alert(context);
+                    }
                   } else {
                     print("validation failed");
                   }
+                  
+                  
                 },
               ),
             ),
@@ -446,6 +472,12 @@ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 ),
                 onPressed: () {
                   _formKey.currentState!.reset();
+                  setState(() {
+                        money=0;
+                        r_count=0;
+                        t_count=0;
+                        o_count=0;
+                      });
                 },
               ),
             ),
