@@ -60,8 +60,8 @@ class _DonorState extends State<Donor> {
                       },
                     );
                   } else {
+                    
                     return LinearProgressIndicator();
-                    AlertButton2();
                   }
                 },
 
