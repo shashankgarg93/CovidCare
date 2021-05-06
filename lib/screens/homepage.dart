@@ -7,10 +7,16 @@ class HomePage extends StatelessWidget {
         image: NetworkImage('https://source.unsplash.com/1600x900/?medical'),
         fit: BoxFit.cover),),
       child: Scaffold(
-
+    //    backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text('Covid-Care',
+
           ),
+          actions: <Widget>
+          [
+            IconButton(onPressed: (){}, icon: Icon(Icons.comment)),
+          ],
+          backgroundColor: Color(0xffff477e),
           centerTitle: true,
         ),
         body: Center(
@@ -34,52 +40,76 @@ class HomePage extends StatelessWidget {
             // horizontal).
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ElevatedButton(onPressed: (){
-                Navigator.pushNamed(context, '/donate_screen2');
-              },
-                style: ButtonStyle(
-                   backgroundColor: MaterialStateProperty.all<Color>(Color(0XFFA33B20)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
+             Container(
+               height: 60,
+               margin: EdgeInsets.all(10),
+               child: FlatButton(
+                 onPressed: (){
+                   Navigator.pushNamed(context, '/donate_screen');
+                 },
+                 shape: RoundedRectangleBorder(
+                   borderRadius: BorderRadius.circular(80)),
+                 child: Ink(
+                   decoration: BoxDecoration(
+                     gradient: LinearGradient(
+                       colors: [Color(0xFFFF0A54),Color(0xFFf7cad0)],
+                       begin: Alignment.centerLeft,
+                       end: Alignment.centerRight,
 
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.red)
-                      )
-                  ),
-                ),
+                     ),
+                     borderRadius: BorderRadius.circular(30),),
+                   child: Container(
+                       constraints:
+                       BoxConstraints(maxWidth: 250.0, minHeight: 50.0),
+                       alignment: Alignment.center,
+                       child: Text(
+                         "Donate",
+                         textAlign: TextAlign.center,
+                         style: TextStyle(color: Colors.white,
+                             fontFamily: 'Vesper',
+                             fontSize: 30),
 
-                child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Donate',
-                style: TextStyle(
-                  color: Color(0xFFA6A57A),
-                  fontSize: 40,
-                ),),
-              ),
-              ),
+                   ),
+                 ),
+
+               ),
+             ),
+             ),
               SizedBox(height: 20,),
-              ElevatedButton(onPressed: (){
-                Navigator.pushNamed(context, '/recieve_screen');
-              },
-                  style: ButtonStyle(
-                   backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFA6A57A)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.red)
-                          )
-                      ),
-                  ),
+              Container(
+                height: 60,
+                margin: EdgeInsets.all(10),
+                child: FlatButton(
+                  onPressed: (){
+                    Navigator.pushNamed(context, '/recieve_screen');
+                  },
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(80)),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xFFFF0A54),Color(0xFFf7cad0)],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
 
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Recieve',
-                style: TextStyle(
-                  color: Color(0XFFA33B20),
-                  fontSize: 39,
+                      ),
+                      borderRadius: BorderRadius.circular(30),),
+                    child: Container(
+                      constraints:
+                      BoxConstraints(maxWidth: 250.0, minHeight: 50.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Recieve",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white,
+                            fontFamily: 'Vesper',
+                            fontSize: 30),
+
+                      ),
+                    ),
+
+                  ),
                 ),
-                ),
-              ),
               ),
             ],
           ),

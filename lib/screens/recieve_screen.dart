@@ -22,55 +22,73 @@ class _RecieveScreenState extends State<RecieveScreen> {
             fit: BoxFit.cover),
       ),
       child: Scaffold(
-        appBar: AppBar(),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              StreamBuilder<QuerySnapshot>(
-                stream: FirebaseFirestore.instance.collection('root').snapshots(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    var doc = snapshot.data!.docs;
-                    return EnhancedDropDown.withData(
-                          dropdownLabelTitle: "Please select your city if *Available",
-                          dataSource: doc.map((e) => e.id).toList(),
-                          defaultOptionText: "City",
-                          valueReturned: (chosen) {
-                             city=chosen;
-                         });
-                  } else {
-                    return LinearProgressIndicator();
-                  }
-                },
+        appBar: AppBar(
+        //  backgroundColor: Colors..,
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                StreamBuilder<QuerySnapshot>(
+                  stream: FirebaseFirestore.instance.collection('root').snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      var doc = snapshot.data!.docs;
+                      return EnhancedDropDown.withData(
+                            dropdownLabelTitle: "Please select your city if *Available",
+                            dataSource: doc.map((e) => e.id).toList(),
+                            defaultOptionText: "City",
+                            valueReturned: (chosen) {
+                               city=chosen;
+                           });
+                    } else {
+                      return LinearProgressIndicator();
+                    }
+                  },
 
-                
-              ),
-              ElevatedButton(onPressed: (){
-                if(city!='')
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemReq(city: city)));
-              },
-                style: ButtonStyle(
-                   backgroundColor: MaterialStateProperty.all<Color>(Color(0XFFA33B20)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
+                  
+                ),
+                Container(
+                  height: 60,
+                  margin: EdgeInsets.all(10),
+                  child: FlatButton(
+                    onPressed: (){
+                      if(city!='')
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemReq(city: city)));
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(80)),
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Color(0xFF0077b6),Color(0xFFcaf0f8)],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
 
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.red)
-                      )
+                        ),
+                        borderRadius: BorderRadius.circular(30),),
+                      child: Container(
+                        constraints:
+                        BoxConstraints(maxWidth: 250.0, minHeight: 50.0),
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Submit",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white,
+                              fontFamily: 'Vesper',
+                              fontSize: 30),
+
+                        ),
+                      ),
+
+                    ),
                   ),
                 ),
 
-                child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Submit',
-                style: TextStyle(
-                  color: Color(0xFFA6A57A),
-                  fontSize: 40,
-                ),),
-              ),
-              ),
-            ],
+
+              ],
+            ),
           ),
         ),
       ),

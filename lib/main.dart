@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
     //scaffoldBackgroundColor:Color.fromRGBO(90, 53, 42, 1),
-    scaffoldBackgroundColor: Colors.transparent,
+//    scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: AppBarTheme(
         backgroundColor: Color.fromRGBO(39,33,60,1),
         // Here we take the value from the MyHomePage object that was created by
