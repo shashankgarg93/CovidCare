@@ -30,25 +30,36 @@ class _RecieveScreenState extends State<RecieveScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance.collection('root').snapshots(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      var doc = snapshot.data!.docs;
-                      return EnhancedDropDown.withData(
-                            dropdownLabelTitle: "Please select your city if *Available",
-                            dataSource: doc.map((e) => e.id).toList(),
-                            defaultOptionText: "City",
-                            valueReturned: (chosen) {
-                               city=chosen;
-                           });
-                    } else {
-                      return LinearProgressIndicator();
-                    }
-                  },
+                Column(
+                  children: [
 
-                  
-                ),
+                   StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance.collection('root').snapshots(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          var doc = snapshot.data!.docs;
+                          return
+                            EnhancedDropDown.withData(
+                            dropdownLabelTitle: "gdsgsdsd",
+
+                            //  dropdownLabelTitle: "Please select your city if *Available",
+
+                                dataSource: doc.map((e) => e.id).toList(),
+                                defaultOptionText: "City",
+                                valueReturned: (chosen) {
+                                   city=chosen;
+                               });
+                        } else {
+                          return CircularProgressIndicator(backgroundColor: Colors.red,);
+                        }
+                      },
+
+
+                    ),
+                ],
+                  ),
+
+
                 Container(
                   height: 60,
                   margin: EdgeInsets.all(10),

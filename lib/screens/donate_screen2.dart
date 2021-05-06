@@ -44,8 +44,11 @@ class _DonateScreen2State extends State<DonateScreen2> {
           child: Column(
             children: <Widget>[
               FormBuilderTextField(
+
                 name: 'name',
+
                 decoration: InputDecoration(
+prefixIcon: Icon(Icons.person_pin_rounded),
                   labelText:
                       'Please enter your Name',
                 ),
@@ -54,19 +57,20 @@ class _DonateScreen2State extends State<DonateScreen2> {
                     name=val;
                   });
                 },
-                
+
                 // valueTransformer: (text) => num.tryParse(text),
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(context),
-                  
+
                   FormBuilderValidators.max(context, 70),
                 ]),
-                
+
               ),
               SizedBox(height: 20),
               FormBuilderTextField(
                 name: 'contact',
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.phone),
                   labelText:
                       'Please enter your Contact number',
                 ),
@@ -88,6 +92,7 @@ class _DonateScreen2State extends State<DonateScreen2> {
               FormBuilderTextField(
                 name: 'city',
                 decoration: InputDecoration(
+                 prefixIcon: Icon(Icons.location_city_outlined),
                   labelText:
                       'Please enter your City',
                 ),

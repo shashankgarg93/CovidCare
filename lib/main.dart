@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
 
         ),
         routes: {
-    '/' : (context) =>HomePage() ,
+    '/' : (context) =>RecieveScreen() ,
     '/donate_screen' : (context) => DonateScreen(),
     '/donate_screen2' : (context) => DonateScreen2(),
     '/recieve_screen' : (context) => RecieveScreen(),
