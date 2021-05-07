@@ -69,7 +69,7 @@ class _DonorState extends State<Donor> {
 
 
                           async{
-                            final url='tel:'+doc[index]["Contact"];
+                            final url='tel:'+doc[index]["phone no"];
                             if(await canLaunch(url)){
                               await launch(url);
                             }
@@ -80,7 +80,7 @@ class _DonorState extends State<Donor> {
                             icon: Icon(Icons.phone,color: Colors.blueAccent,),
                             elevation: 0.0,
                             autofocus: true,
-                            label: Text(doc[index]["Contact"],
+                            label: Text(doc[index]["phone no"],
                               style: TextStyle(
                                 color: Colors.blueAccent,
                                 fontSize: 20.0,
