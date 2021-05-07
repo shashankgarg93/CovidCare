@@ -148,147 +148,189 @@ class _DonateScreenState extends State<DonateScreen> {
                         //**********************************************************************************
 
                         Card(
+
                           clipBehavior: Clip.antiAlias,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                leading: Icon(Icons.medical_services
-                                  ,color: Colors.blueAccent,),
-                                title: const Text('Remdisivir'),
-                                subtitle: Text(
-                                  '$r_count',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage("https://www.cidrap.umn.edu/sites/default/files/public/styles/ss_media_popup/public/media/article/remdesivir_bottle.jpg?itok=nKoly_E1"),
+                                fit: BoxFit.fitWidth,
+                                alignment: Alignment.topCenter,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Text(
-                                  'Remfagnhjsnaklk',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
-                              ),
-                              ButtonBar(
-                                alignment: MainAxisAlignment.start,
-                                children: [
-                                  FlatButton(
-                                    textColor: Colors.blueAccent,
-                                    onPressed: () {
-                                     setState(() {
-                                       r_count++;
-                                     });
-                                      // Perform some action
-                                    },
-                                    child: Icon(FontAwesomeIcons.plus),
+                            ),
+                            child: Column(
+
+                              children: [
+                                ListTile(
+                                  leading: Icon(Icons.medical_services
+                                    ,color: Colors.blueAccent,),
+                                  title: const Text('Remdisivir'
+                                  ,style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0
+                                    ),),
+                                  subtitle: Text(
+                                    'Amount=$r_count',
+                                    style: TextStyle(color: Colors.black),
                                   ),
-                                  FlatButton(
-                                    textColor: Colors.blueAccent,
-                                    onPressed: () {
-                                     setState(() {
-                                       if(r_count>0){r_count--;}
-                                     });
-                                    },
-                                    child: Icon(FontAwesomeIcons.minus),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                '',    style: TextStyle(color: Colors.black.withOpacity(0.6)),
                                   ),
-                                ],
-                              ),
-                    Image.network("https://s3.amazonaws.com/pixpa.com/com/articles/1525891879-683036-peter-sjo-201640-unsplashjpg.png"),
-                            ],
+                                ),
+                                ButtonBar(
+                                  alignment: MainAxisAlignment.start,
+                                  children: [
+                                    FlatButton(
+                                      textColor: Colors.blueAccent,
+                                      onPressed: () {
+                                       setState(() {
+                                         r_count++;
+                                       });
+                                        // Perform some action
+                                      },
+                                      child: Icon(FontAwesomeIcons.plus),
+                                    ),
+                                    FlatButton(
+                                      textColor: Colors.blueAccent,
+                                      onPressed: () {
+                                       setState(() {
+                                         if(r_count>0){r_count--;}
+                                       });
+                                      },
+                                      child: Icon(FontAwesomeIcons.minus),
+                                    ),
+                                  ],
+                                ),
+                   // Image.network("https://s3.amazonaws.com/pixpa.com/com/articles/1525891879-683036-peter-sjo-201640-unsplashjpg.png"),
+                              ],
+                            ),
                           ),
                         ),
                         Card(
                           clipBehavior: Clip.antiAlias,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                leading: Icon(Icons.medical_services
-                                  ,color: Colors.blueAccent,),
-                                title: const Text('Oxygen Cylinder(KG)'),
-                                subtitle: Text(
-                                  '$o_count',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage("https://www.cidrap.umn.edu/sites/default/files/public/styles/ss_media_popup/public/media/article/remdesivir_bottle.jpg?itok=nKoly_E1"),
+                                fit: BoxFit.fitWidth,
+                                alignment: Alignment.topCenter,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Text(
-                                  'Remfagnhjsnaklk',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
-                              ),
-                              ButtonBar(
-                                alignment: MainAxisAlignment.start,
-                                children: [
-                                  FlatButton(
-                                    textColor:  Colors.blueAccent,
-                                    onPressed: () {
-                                      setState(() {
-                                        o_count++;
-                                      });
-                                      // Perform some action
-                                    },
-                                    child: Icon(FontAwesomeIcons.plus),
+                            ),
+
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  leading: Icon(Icons.medical_services
+                                    ,color: Colors.blueAccent,),
+                                  title: const Text('Oxygen Cylinder(KG)'
+                                    ,style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0
+                                    ),                                 ),
+                                  subtitle: Text(
+                                    'Amount=$o_count',
+                                    style: TextStyle(color: Colors.black),
                                   ),
-                                  FlatButton(
-                                    textColor:  Colors.blueAccent,
-                                    onPressed: () {
-                                      setState(() {
-                                        if(o_count>0){o_count--;}
-                                      });
-                                    },
-                                    child: Icon(FontAwesomeIcons.minus),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                    '',
+                                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
                                   ),
-                                ],
-                              ),
-                              Image.network("https://s3.amazonaws.com/pixpa.com/com/articles/1525891879-683036-peter-sjo-201640-unsplashjpg.png"),
-                            ],
+                                ),
+                                ButtonBar(
+                                  alignment: MainAxisAlignment.start,
+                                  children: [
+                                    FlatButton(
+                                      textColor:  Colors.blueAccent,
+                                      onPressed: () {
+                                        setState(() {
+                                          o_count++;
+                                        });
+                                        // Perform some action
+                                      },
+                                      child: Icon(FontAwesomeIcons.plus),
+                                    ),
+                                    FlatButton(
+                                      textColor:  Colors.blueAccent,
+                                      onPressed: () {
+                                        setState(() {
+                                          if(o_count>0){o_count--;}
+                                        });
+                                      },
+                                      child: Icon(FontAwesomeIcons.minus),
+                                    ),
+                                  ],
+                                ),
+                            //    Image.network("https://s3.amazonaws.com/pixpa.com/com/articles/1525891879-683036-peter-sjo-201640-unsplashjpg.png"),
+                              ],
+                            ),
                           ),
                         ),
                         Card(
                           clipBehavior: Clip.antiAlias,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                leading: Icon(Icons.medical_services
-                                ,color: Colors.blueAccent,),
-                                title: const Text('Tozila Injection'),
-                                subtitle: Text(
-                                  '$t_count',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage("https://static.toiimg.com/thumb/76940303.cms?width=680&height=512&imgsize=640072"),
+                                fit: BoxFit.fitWidth,
+                                alignment: Alignment.topCenter,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Text(
-                                  'Remfagnhjsnaklk',
-                                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                                ),
-                              ),
-                              ButtonBar(
-                                alignment: MainAxisAlignment.start,
-                                children: [
-                                  FlatButton(
-                                    textColor:  Colors.blueAccent,
-                                    onPressed: () {
-                                      setState(() {
-                                        t_count++;
-                                      });
-                                      // Perform some action
-                                    },
-                                    child: Icon(FontAwesomeIcons.plus),
+                            ),
+
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  leading: Icon(Icons.medical_services
+                                  ,color: Colors.blueAccent,),
+                                  title: const Text('Tozila Injection',
+                                      style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0
+                                  ),),
+                                  subtitle: Text(
+                                    'Amount=$t_count',
+                                    style: TextStyle(color: Colors.black),
                                   ),
-                                  FlatButton(
-                                    textColor:  Colors.blueAccent,
-                                    onPressed: () {
-                                      setState(() {
-                                        if(t_count>0){t_count--;}
-                                      });
-                                    },
-                                    child: Icon(FontAwesomeIcons.minus),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                    '',
+                                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
                                   ),
-                                ],
-                              ),
-                              Image.network("https://s3.amazonaws.com/pixpa.com/com/articles/1525891879-683036-peter-sjo-201640-unsplashjpg.png"),
-                            ],
+                                ),
+                                ButtonBar(
+                                  alignment: MainAxisAlignment.start,
+                                  children: [
+                                    FlatButton(
+                                      textColor:  Colors.blueAccent,
+                                      onPressed: () {
+                                        setState(() {
+                                          t_count++;
+                                        });
+                                        // Perform some action
+                                      },
+                                      child: Icon(FontAwesomeIcons.plus),
+                                    ),
+                                    FlatButton(
+                                      textColor:  Colors.blueAccent,
+                                      onPressed: () {
+                                        setState(() {
+                                          if(t_count>0){t_count--;}
+                                        });
+                                      },
+                                      child: Icon(FontAwesomeIcons.minus),
+                                    ),
+                                  ],
+                                ),
+                               // Image.network("https://s3.amazonaws.com/pixpa.com/com/articles/1525891879-683036-peter-sjo-201640-unsplashjpg.png"),
+                              ],
+                            ),
                           ),
                         ),
 
